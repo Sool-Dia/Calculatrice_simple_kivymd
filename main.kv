@@ -1,0 +1,155 @@
+# File name: main.kv
+
+<CustomButton>
+    size_hint:(.1,.1)
+    radius:[50]
+    #md_bg_color:"faa307"           #"f48c06"
+    font_size:28
+<CustomOpButton>
+    size_hint:(.1,.1)
+    radius:[50]
+    #md_bg_color:"#e85d04"           #"f48c06"
+    font_size:28
+
+CalcScreen:
+    MDBoxLayout:
+        orientation:"vertical"
+        spacing:10
+        padding:[10]
+        TextInput:
+            id:calc_screen
+            text:""
+            background_color:"#0a0908"
+            size_hint:(1, .15)
+            font_size:root.width*(0.05)
+            halign:"right"
+            valign:"center"
+            text_color:"#ff006e"
+        MDBoxLayout:
+            orientation:"horizontal"
+            size_hint:(1, .1)
+            md_bg_color:"#6b705c"
+            padding:[20]
+            MDIconButton:
+                id:btn_power
+                icon:"power"
+                theme_icon_color: "Custom"
+                icon_color:"white"
+                pos_hint:{"center_y":.5}
+                on_press:root.on_power_press()
+            MDLabel:
+                markup:True
+                text:"[b][size=18]Calculatrice  [color=4f000b]TI-2022[/color][/size][/b]"
+                pos_hint:{"center_x":.4, "center_y":.9}
+                halign:"center"
+        MDGridLayout:
+            cols:4
+            rows:6
+            spacing:15
+            #md_bg_color:"red"
+            # Row 1 =================================================
+            MDFillRoundFlatButton: #CustomOpButton
+                size_hint:(.1,.1)
+                radius:[50]
+                text:"CE"
+                font_size:28
+                md_bg_color:"#0ead69"
+                on_press:root.on_clear()
+            CustomOpButton:
+                text:"C"
+                on_press:root.on_correction()
+            CustomOpButton:
+                text:"%"
+                on_press:root.on_percent_press(1)
+            CustomOpButton:
+                text:"/"
+                on_press:root.on_operator_sign("/")
+            # Row 2 =================================================
+            CustomButton:
+                text:"7"
+                on_press:root.button_press(7)
+            CustomButton:
+                text:"8"
+                on_press:root.button_press(8)
+            CustomButton:
+                text:"9"
+                on_press:root.button_press(9)
+            CustomOpButton:
+                text:"x"
+                on_press:root.on_operator_sign("*")
+            # Row 3 =================================================
+
+            CustomButton:
+                text:"4"
+                on_press:root.button_press(4)
+            CustomButton:
+                text:"5"
+                on_press:root.button_press(5)
+            CustomButton:
+                text:"6"
+                on_press:root.button_press(6)
+            CustomOpButton:
+                text:"+"
+                on_press:root.on_operator_sign("+")
+             # Row 4 =================================================
+            CustomButton:
+                text:"1"
+                on_press:root.button_press(1)
+            CustomButton:
+                text:"2"
+                on_press:root.button_press("2")
+            CustomButton:
+                text:"3"
+                on_press:root.button_press("3")
+            CustomOpButton:
+                text:"-"
+                on_press:root.on_operator_sign("-")
+             # Row 5 =================================================
+            CustomButton:
+                text:"0"
+                on_press:root.button_press(0)
+            CustomButton:
+                text:"."
+                font_size:40
+                on_press:root.on_dot_press()
+            CustomOpButton:
+                text:"("
+                on_press:root.button_press("(")
+            CustomOpButton:
+                text:")"
+                on_press:root.button_press(")")
+             # Row 6 =================================================
+            CustomOpButton:
+                text:"+/-"
+                on_press:root.on_plus_moins_press()
+            CustomOpButton:
+                text:"exp"
+                on_press:root.button_press("**")
+            CustomOpButton:
+                text:"√x"
+                on_press:root.on_racine_press()
+            MDFillRoundFlatButton: #CustomOpButton
+                size_hint:(.1,.1)
+                radius:[50]
+                font_size:28
+                text:"="
+                md_bg_color:"#4361ee"
+                on_press:root.on_Equal_press()
+        MDBoxLayout:
+            orientation:"horizontal"
+            pos_hint:{"center_y":.3}
+            size_hint_x:1
+            size_hint_y:.2
+            spacing:20
+            padding:[20]
+            md_bg_color:"#6b705c"
+            MDLabel:
+                text:" Copyright:decembre 2022-Diarra Souleymane"
+                font_size:12
+
+
+
+
+
+
+
